@@ -1,0 +1,34 @@
+<view>
+    <SearchInput></SearchInput>
+    <!-- 自定义组件Tabs -->
+    <Tabs tabs="{{tabs}}" bindtapTab='recTabIndex'>
+        <!-- 综合 -->
+        <block wx:if="{{tabs[0].isActive}}">
+            <view class="first_tab">
+                <navigator url='/pages/goods_detail/index?goods_id={{item.goods_id}}' class="goods_item" wx:for="{{goods_list}}" wx:key="goods_id">
+                    <!-- 左侧图片 -->
+                    <view class="goods_img_wrap">
+                        <image src="{{item.goods_small_logo?item.goods_small_logo:'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}" mode='widthFix'></image>
+                    </view>
+                    <!-- 右侧商品 -->
+                    <view class="goods_info_wrap">
+                        <view class="goods_name">
+                            {{item.goods_name}}
+                        </view>
+                        <view class="goods_price">
+                            ￥{{item.goods_price}}
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </block>
+        <!-- 销量 -->
+        <block wx:if="{{tabs[1].isActive}}">
+            <view class="first_tab">12</view>
+        </block>
+        <!-- 价格 -->
+        <block wx:if="{{tabs[2].isActive}}">
+            <view class="first_tab">12</view>
+        </block>
+    </Tabs>
+</view>

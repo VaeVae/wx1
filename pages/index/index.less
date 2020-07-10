@@ -1,0 +1,61 @@
+// 轮播区域
+.index_swiper{
+    swiper{
+        width: 750rpx;
+        height: 340rpx;
+        // swiper默认有宽高所以需要设置宽高
+        // 与图片的宽高比例相同
+        image{
+            // 原图片的宽高是750*340
+            // image有默认的宽高,所以设置宽100%高自适应
+            width: 100%;
+        }
+    }
+}
+// 导航区域
+.index_cate{
+    display: flex;
+    navigator{
+        padding:20rpx;
+        flex: 1;
+        image{
+            width: 100%;
+        }
+    }
+}
+// 楼层区域
+.index_floor{
+    .floor_group{
+        // 标题
+        .floor_title{
+            padding:10rpx 0;
+            image{
+                width: 100%;
+            }
+        }
+        // 列表内容
+        .floor_list{
+            overflow: hidden;
+            navigator{
+                float: left;
+                // 每一个块占总宽度的1/3
+                // 原图比例为 232 * 386
+                // 第一个块的高度不变后面的四个是第一个的1/2高度
+                // 第一个的高度 ： 33.33vw * 386 / 232
+                // 后四块的高度 ：33.33vw * 386 / 232 /2
+                width: 33.33%;
+                &:nth-last-child(-n+4){
+                    height: 33.33vw * 386 / 232 /2;
+                    border-left:10rpx solid #fff;
+                }
+                &:nth-child(2),&:nth-child(3){
+                    border-bottom:10rpx solid #fff;
+                }
+                image{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
